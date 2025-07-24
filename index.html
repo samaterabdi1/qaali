@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Please Forgive Me 💔</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(ellipse at center, #ffe6e6 0%, #ffcccc 100%);
+      overflow-x: hidden;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      position: relative;
+      min-height: 100vh;
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.7rem;
+      color: #fff;
+      text-shadow: 2px 2px 10px #d81b60;
+      margin-bottom: 1.2rem;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    #typed {
+      font-size: 1.1rem;
+      max-width: 90%;
+      margin: 0 auto;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1.5px solid #fff;
+      border-radius: 15px;
+      text-shadow: 0 0 6px #fff;
+      animation: fadeInUp 2s ease-in-out;
+      line-height: 1.6;
+    }
+    .button {
+      margin-top: 2rem;
+      background: linear-gradient(145deg, #ff6f91, #ff9671);
+      color: white;
+      padding: 14px 26px;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+    .button:hover {
+      transform: scale(1.05);
+      background: #d81b60;
+    }
+    .hidden-message {
+      display: none;
+      font-size: 1.4rem;
+      margin-top: 1.8rem;
+      color: #fff;
+      text-shadow: 0 0 10px #fff;
+      animation: pulse 2s infinite;
+    }
+    .heart {
+      position: fixed;
+      width: 16px;
+      height: 16px;
+      background: red;
+      transform: rotate(45deg);
+      animation: floatUp 7s infinite ease-in;
+      opacity: 0.6;
+      z-index: -1;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before { top: -8px; left: 0; }
+    .heart::after { top: 0; left: -8px; }
+
+    #her-photo {
+      margin-top: 2rem;
+      max-width: 150px;
+      width: 60%;
+      border-radius: 50%;
+      box-shadow: 0 0 25px #fff;
+      animation: fadeInUp 2s ease-out;
+      display: none;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+      100% { transform: translateY(-110vh) rotate(45deg); opacity: 0; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff6f91, 0 0 20px #ff6f91; }
+      to { text-shadow: 0 0 20px #ff8fab, 0 0 30px #ff8fab; }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      .button {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+      }
+      .hidden-message {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>I'm Sorry, My Queen hoodo 💖</h1>
+
+  <div id="typed"></div>
+
+  <button class="button" onclick="showMessage()">💌 Tap to See My True Feelings</button>
+
+  <div class="hidden-message" id="hiddenMsg">No one means more to me than you <hr> i swear hoodo. Please forgive me from all of ur heart 💞</div>
+
+  <img id="her-photo" src="bubu.jpg" alt="My Love" />
+
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3815ed34d7.mp3?filename=emotional-love-piano-22915.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 5 + Math.random() * 3 + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 9000);
+    }
+    setInterval(createHeart, 300);
+
+    const text = "My love, I know I’ve hurt you, and I’m truly sorry. You are the light of my life, and I never want to lose you. Every moment without your smile hurts. Please forgive me. I promise to be better, for you, for us. I love you more than words can ever express. 💔";
+    let i = 0;
+    function typeText() {
+      if (i < text.length) {
+        document.getElementById("typed").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeText, 40);
+      }
+    }
+    window.onload = typeText;
+
+    function showMessage() {
+      document.getElementById("hiddenMsg").style.display = "block";
+      document.getElementById("her-photo").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
